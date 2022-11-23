@@ -1,6 +1,6 @@
 import express from 'express';
 import routes from './routes';
-require('../config/associations');
+require('../config/associations')
 
 const app = express();
 

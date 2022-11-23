@@ -1,4 +1,5 @@
 import express from 'express';
+import AssetController from '../controller/assetController';
 import UserController from "../controller/userController";
 import WalletController from '../controller/walletController';
 
@@ -23,5 +24,9 @@ routers.post("/users/:userId/wallets", WalletController.store)
 routers.get("/users/:userId/wallets", WalletController.getAll);
 routers.put("/users/:userId/wallets/:id", WalletController.put)
 routers.delete("/users/:userId/wallets/:id", WalletController.delete);
+
+//ATIVOS
+routers.post("/wallets/:walletId/assets", AssetController.store);
+routers.get("/wallets/:walletId/assets", AssetController.getAll);
 
 export default routers;
