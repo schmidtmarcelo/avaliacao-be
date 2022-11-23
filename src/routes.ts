@@ -1,5 +1,5 @@
 import express from 'express';
-import { UserController } from "../controller/UserController";
+import UserController from "../controller/userController";
 
 const routers = express.Router();
 
@@ -11,7 +11,9 @@ routers.get("/", (req, res) => {
     })
 });
 
-routers.post("/users", new UserController().store);
-routers.get("/users", new UserController().getAll);
+routers.post("/users", UserController.store);
+routers.get("/users", UserController.getAll);
+routers.put("/users/:id", UserController.put)
+routers.delete("/users/:id", UserController.delete);
 
 export default routers;
