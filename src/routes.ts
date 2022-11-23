@@ -12,5 +12,6 @@ routers.get("/", (req, res) => {
 });
 
 routers.post("/users", new UserController().store);
+routers.get("/users", new UserController().getAll);
 
 export default routers;

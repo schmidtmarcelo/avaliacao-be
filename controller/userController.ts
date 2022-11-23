@@ -7,4 +7,9 @@ export class UserController {
         const user = await User.create({name});
         return res.json(user);
     }
+
+    getAll = async(req: any, res: any) => {
+        const users = await User.findAll();
+        return res.json(users);
+    }
 };
