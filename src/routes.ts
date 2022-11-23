@@ -1,5 +1,6 @@
 import express from 'express';
 import UserController from "../controller/userController";
+import WalletController from '../controller/walletController';
 
 const routers = express.Router();
 
@@ -11,9 +12,16 @@ routers.get("/", (req, res) => {
     })
 });
 
+//USUARIOS
 routers.post("/users", UserController.store);
 routers.get("/users", UserController.getAll);
 routers.put("/users/:id", UserController.put)
 routers.delete("/users/:id", UserController.delete);
+
+//CARTEIRAS
+routers.post("/users/:userId/wallets", WalletController.store)
+routers.get("/users/:userId/wallets", WalletController.getAll);
+routers.put("/users/:userId/wallets/:id", WalletController.put)
+routers.delete("/users/:userId/wallets/:id", WalletController.delete);
 
 export default routers;
